@@ -1,0 +1,30 @@
+<service>
+  <id>CaddyPortfolio</id>
+  <name>Caddy Portfolio Web Server</name>
+  <description>Caddy serving the Zain Ahmed portfolio</description>
+
+  <executable>%BASE%\caddy.exe</executable>
+  <startarguments>run --environ --config "%BASE%\Caddyfile" --adapter caddyfile</startarguments>
+  <stopexecutable>%BASE%\caddy.exe</stopexecutable>
+  <stoparguments>stop --config "%BASE%\Caddyfile" --adapter caddyfile</stoparguments>
+
+  <env name="XDG_DATA_HOME" value="%BASE%\state\data" />
+  <env name="XDG_CONFIG_HOME" value="%BASE%\state\config" />
+
+  <serviceaccount>
+    <username>NT AUTHORITY\LocalService</username>
+  </serviceaccount>
+
+  <startmode>Automatic</startmode>
+  <delayedAutoStart>true</delayedAutoStart>
+  <stoptimeout>20 sec</stoptimeout>
+
+  <logpath>%BASE%\logs</logpath>
+  <log mode="roll-by-size">
+    <sizeThreshold>10240</sizeThreshold>
+    <keepFiles>8</keepFiles>
+  </log>
+
+  <onfailure action="restart" delay="5 sec" />
+  <resetfailure>1 hour</resetfailure>
+</service>

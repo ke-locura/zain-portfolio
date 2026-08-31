@@ -1,0 +1,31 @@
+{
+	admin 127.0.0.1:2019
+}
+
+(portfolio_static) {
+	root * C:/web/portfolio/current
+	encode zstd gzip
+
+	@immutable path /_app/immutable/*
+	header @immutable Cache-Control "public, max-age=31536000, immutable"
+
+	file_server
+}
+
+http://:8080 {
+	bind 127.0.0.1
+	import portfolio_static
+}
+
+http://:80 {
+	bind 127.0.0.1
+	import portfolio_static
+
+	log {
+		output file C:/web/caddy/logs/access.log {
+			roll_size 10MiB
+			roll_keep 10
+			roll_keep_for 720h
+		}
+	}
+}
