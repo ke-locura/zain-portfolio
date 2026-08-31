@@ -17,7 +17,7 @@
 </script>
 
 <footer class="site-footer">
-  <div class="footer-rail chrome-rail"><div class="content-shell footer-rail__inner"><span>PORTFOLIO SIGNAL / END</span><span>BEST VIEWED WITH CURIOSITY / INTENT</span><span>© 2026 Zain Ahmed</span></div></div>
+  <div class="footer-rail chrome-rail"><div class="content-shell footer-rail__inner"><span>PORTFOLIO SIGNAL / LIVE</span><span>BEST VIEWED WITH CURIOSITY / INTENT</span><span>© 2026 Zain Ahmed</span></div></div>
   <div class="content-shell footer-main">
     <div class="footer-identity"><p class="micro-label">UI/UX DESIGNER / WEB DEVELOPER</p><p class="footer-name chrome-text">ZAIN AHMED</p></div>
     <nav class="footer-site-links" aria-label="Site navigation"><p class="micro-label">SITE INDEX</p>{#each siteLinks as link}<a href={link.href}>{link.label}</a>{/each}</nav>
